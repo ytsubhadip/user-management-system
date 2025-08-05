@@ -1,4 +1,5 @@
 from flask import Flask,render_template
+import os
 
 app = Flask(__name__)
 
@@ -6,4 +7,4 @@ app = Flask(__name__)
 def hello_world():
     return render_template("index.html")
 
-app.run(debug=True)
+app.run(host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
